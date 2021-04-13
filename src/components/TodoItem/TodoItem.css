@@ -4,6 +4,9 @@
 	justify-content: space-between;
 	user-select: none;
 }
+.content {
+	flex: 1;
+}
 .complete {
 	text-decoration: line-through 2px black;
 }

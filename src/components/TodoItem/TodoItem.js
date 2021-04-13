@@ -2,14 +2,16 @@ import React from 'react'
 import './TodoItem.css'
 
 function Todo(props) {
-	const { id, content, removeTodo } = props
+	const { id, content, complete, removeTodo, toggleComplete } = props
 
-	const toggleComplete = (e) => {
-		e.target.firstElementChild.classList.toggle('complete')
-	}
 	return (
-		<div className='todoItem' onClick={toggleComplete}>
-			<div>{content}</div>
+		<div className='todoItem'>
+			<div
+				className={complete === true ? 'content complete' : 'content'}
+				onClick={() => toggleComplete(id)}
+			>
+				{content}
+			</div>
 			<button onClick={() => removeTodo(id)}>Sil</button>
 		</div>
 	)

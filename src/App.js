@@ -23,6 +23,7 @@ class App extends Component {
 				// Delete yaparken kullanılabilmesi için bir her item için random bir id
 				id: Math.random(),
 				content: currentValue,
+				complete: false,
 			}
 
 			this.setState(
@@ -53,6 +54,13 @@ class App extends Component {
 			todos: this.state.todos.filter((item) => item.id !== id),
 		})
 	}
+	toggleComplete = (id) => {
+		this.setState({
+			todos: this.state.todos.map((item) =>
+				item.id === id ? { ...item, complete: !item.complete } : { ...item }
+			),
+		})
+	}
 
 	render() {
 		return (
@@ -68,6 +76,7 @@ class App extends Component {
 						<TodoList
 							todos={this.state.todos}
 							removeTodo={this.removeTodo}
+							toggleComplete={this.toggleComplete}
 						/>
 					</div>
 				)}

@@ -13,6 +13,7 @@ function TodoList(props) {
 								{...todo}
 								key={todo.id}
 								removeTodo={props.removeTodo}
+								toggleComplete={props.toggleComplete}
 							/>
 						</li>
 					)
